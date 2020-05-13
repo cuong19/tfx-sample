@@ -1,9 +1,10 @@
 import json
+from typing import List
 
 import requests
 
 
-def rest_infer(x,
+def rest_infer(instances: List,
                model_name='adder',
                host='localhost',
                port=8501,
@@ -11,7 +12,7 @@ def rest_infer(x,
                ):
     data = json.dumps({
         "signature_name": signature_name,
-        "instances": [x]
+        "instances": instances
     })
 
     headers = {"content-type": "application/json"}
@@ -24,4 +25,4 @@ def rest_infer(x,
 
 
 if __name__ == "__main__":
-    rest_infer(1)
+    rest_infer([1, 2, 3])

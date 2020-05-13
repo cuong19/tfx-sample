@@ -5,7 +5,7 @@ class Adder(tf.Module):
 
     @tf.function(input_signature=[tf.TensorSpec(shape=None, dtype=tf.float32)])
     def add(self, x):
-        return x + x + 1.
+        return x + 1.
 
 
 if __name__ == "__main__":
