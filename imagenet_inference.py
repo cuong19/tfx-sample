@@ -112,17 +112,15 @@ def preprocess(img):
 # In[7]:
 
 
-def predict(path):
-    img = get_image(path, show=True)
-    img = preprocess(img)
+def predict(img):
     mod.forward(Batch([img]))
     # Take softmax to generate probabilities
     scores = mx.ndarray.softmax(mod.get_outputs()[0]).asnumpy()
     # print the top-5 inferences class
     scores = np.squeeze(scores)
     a = np.argsort(scores)[::-1]
-    for i in a[0:5]:
-        print('class=%s ; probability=%f' %(labels[i],scores[i]))
+    i = a[0]
+    return 'class=%s ; probability=%f' %(labels[i],scores[i])
 
 
 # ### Load the network for inference
@@ -151,6 +149,6 @@ mod.set_params(arg_params, aux_params, allow_missing=True, allow_extra=True)
 
 # Enter path to the inference image below
 if __name__ == "__main__":
-    img_path = 'kitten.jpg'
-    predict(img_path)
+    img = mx.nd.array(np.load('kitten.npy').tolist())
+    print(predict(img))
 
