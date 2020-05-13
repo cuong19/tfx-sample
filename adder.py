@@ -10,4 +10,4 @@ class Adder(tf.Module):
 
 if __name__ == "__main__":
     to_export = Adder()
-    tf.saved_model.save(to_export, 'tmp/adder')
+    tf.saved_model.save(to_export, 'tmp/adder/1')

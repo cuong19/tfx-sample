@@ -4,3 +4,4 @@ onnx==1.7.0
 mxnet==1.6.0
 matplotlib==3.2.1
 tensorflow-addons==0.9.1
+requests
