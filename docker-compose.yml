@@ -12,3 +12,15 @@ services:
         target: /models/adder
     environment:
       MODEL_NAME: adder
+
+#  tfserving_resnet:
+#      container_name: tfserving_resnet
+#      image: 'tensorflow/serving:latest'
+#      ports:
+#        - '8501:8501'
+#      volumes:
+#        - type: bind
+#          source: ./tmp/resnet
+#          target: /models/resnet
+#      environment:
+#        MODEL_NAME: resnet

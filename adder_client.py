@@ -2,6 +2,9 @@ import json
 from typing import List
 
 import requests
+import numpy as np
+
+from imagenet_inference import get_image, preprocess
 
 
 def rest_infer(instances: List,
@@ -25,4 +28,5 @@ def rest_infer(instances: List,
 
 
 if __name__ == "__main__":
-    rest_infer([1, 2, 3])
+    img = np.load('kitten.npy').tolist()
+    rest_infer([img])
